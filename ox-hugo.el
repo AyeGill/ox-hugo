@@ -2070,7 +2070,7 @@ and rewrite link paths to make blogging more seamless."
            (let ((path (progn
                          ;; Treat links to `file.org' as links to `file.md'.
                          (if (string= ".org" (downcase (file-name-extension destination ".")))
-                             (concat (file-name-sans-extension destination) ".md")
+                             (concat (file-name-sans-extension (file-name-nondirectory destination)) ".md")
                            destination))))
              (if desc
                  (format "[%s]({{<relref \"%s\" >}})" desc path)
